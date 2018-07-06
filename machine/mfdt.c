@@ -3,6 +3,8 @@
 #include <string.h>
 #include "config.h"
 #include "mfdt.h"
+#include "libfdt.h"
+#include "fdt.h"
 #include "mtrap.h"
 
 static inline uint32_t bswap(uint32_t x)
@@ -626,6 +628,58 @@ void filter_harts(uintptr_t fdt, long *disabled_hart_mask)
   fdt_scan(fdt, &cb);
 }
 
+//////////////////////////////////////////// NODE ADD //////////////////////////////////////////////
+#define ARRAY_SIZE(x)   (sizeof(x) / sizeof((x)[0]))
+
+#define fdt_setprop_cells(fdt, node_offset, property, ...)                 \
+    do {                                                                      \
+        uint32_t qdt_tmp[] = { __VA_ARGS__ };                                 \
+        int i;                                                                \
+                                                                              \
+        for (i = 0; i < ARRAY_SIZE(qdt_tmp); i++) {                           \
+            qdt_tmp[i] = bswap(qdt_tmp[i]);                             \
+        }                                                                     \
+        fdt_setprop(fdt, node_offset, property, qdt_tmp,                   \
+                         sizeof(qdt_tmp));                                    \
+    } while (0)
+
+void add_msemi_pcie_node(void *dtb)
+{
+  int pci_offset;
+  int msemi_pci_offset;
+  int intc_offset;
+  int pci_intc_phandle; 
+  int pci_intc_parent = fdt_get_phandle(dtb,fdt_path_offset(dtb, "/soc/interrupt-controller"));
+  pci_offset = fdt_path_offset(dtb, "/soc");
+  msemi_pci_offset = fdt_add_subnode(dtb, pci_offset, "pcix");
+  printm("In pci_offset = [%d] msem = [%d] parent = [%d]\n", pci_offset, msemi_pci_offset, pci_intc_parent);
+  fdt_setprop_cell(dtb, msemi_pci_offset, "#address-cells", 3);
+  fdt_setprop_cell(dtb, msemi_pci_offset, "#interrupt-cells", 1);
+  fdt_setprop_cell(dtb, msemi_pci_offset, "#size-cells", 2);
+  fdt_setprop_string(dtb, msemi_pci_offset, "compatible", "ms-pf,axi-pcie-host");
+  fdt_setprop_string(dtb, msemi_pci_offset, "device_type", "pci");
+  
+  fdt_setprop_cells(dtb, msemi_pci_offset, "bus-range", 0x01, 0x7f);
+  fdt_setprop_cells(dtb, msemi_pci_offset, "interrupt-map-mask", 0, 0, 0, 7);
+  fdt_setprop_cell(dtb, msemi_pci_offset, "interrupt-parent", pci_intc_parent);
+  fdt_setprop_cell(dtb, msemi_pci_offset, "interrupts", 32);
+  
+  
+  fdt_setprop_cells(dtb, msemi_pci_offset, "ranges", 0x2000000, 0x0, 0x40000000, 0x0, 0x40000000, 0x0, 0x20000000);
+  fdt_setprop_cells(dtb, msemi_pci_offset, "reg", 0x20, 0x30000000, 0x0, 0x4000000, 0x20, 0x0, 0x0, 0x100000);
+  fdt_setprop(dtb, msemi_pci_offset, "reg-names", "control",sizeof("control"));
+  fdt_appendprop(dtb, msemi_pci_offset, "reg-names", "apb",sizeof("apb"));
+   
+  
+  intc_offset = fdt_add_subnode(dtb, msemi_pci_offset, "ms_pcie_intc");
+  fdt_setprop_cell(dtb, intc_offset, "#address-cells", 0);
+  fdt_setprop_cell(dtb, intc_offset, "#interrupt-cells", 1);
+  fdt_setprop(dtb, intc_offset, "interrupt-controller", NULL, 0); 
+  fdt_setprop_cells(dtb, intc_offset, "phandle", 50);
+  
+  pci_intc_phandle = fdt_get_phandle(dtb,intc_offset);
+  fdt_setprop_cells(dtb, msemi_pci_offset, "interrupt-map", 0, 0, 0, 1, pci_intc_phandle, 1, 0, 0, 0, 2, pci_intc_phandle, 2, 0, 0, 0  ,3,pci_intc_phandle,  3, 0, 0, 0, 4, pci_intc_phandle, 4);
+}
 //////////////////////////////////////////// PRINT //////////////////////////////////////////////
 
 #ifdef PK_PRINT_DEVICE_TREE
