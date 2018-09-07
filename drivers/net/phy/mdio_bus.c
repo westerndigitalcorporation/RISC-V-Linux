@@ -64,9 +64,6 @@ static int mdiobus_register_gpiod(struct mdio_device *mdiodev)
 
 	mdiodev->reset = gpiod;
 
-	/* Assert the reset signal again */
-	mdio_device_reset(mdiodev, 1);
-
 	return 0;
 }
 
