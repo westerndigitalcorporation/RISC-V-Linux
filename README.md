@@ -41,7 +41,7 @@ source tree also has to be hosted out of mainline tree.
 
 **riscv-linux-conf:**
 
-It contains the required linux config files for this project. This needs to be copied  to freedom-u-sdk conf directory.
+It contains the required Linux config file for this project. This needs to be copied  to freedom-u-sdk conf directory.
 
 N.B. The Linux config file will only work for HighFive Unleashed board with a GPU card. You can't use this in a QEMU setup. Mainline kernel 4.19-rc2 should boot in QEMU without
 any issues.
@@ -82,17 +82,27 @@ In that case, you don't need this change.
 	9d561e92 Add microsemi pcie entry in bbl.
 	5a45a6ea Add libfdt support.
 
+**patches:**
+All the above patches are copied here in separate directories according to the projects.
+You can directly apply these patches on top of your tree as well instead of checkout procedure
+explained below.
+
 Build
 ----------------------------------------------------------------------------------
 
-The build instructions are based on freedom-u-sdk setup. If you are using your own tool chain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image. All the commands are run from freedom-u-sdk root directory. The insturctions have only been tested on Ubuntu 16.04.
+The build instructions are based on freedom-u-sdk setup. If you are using your own tool chain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image. All the commands are run from freedom-u-sdk root directory.
+The instructions have only been tested on Ubuntu 16.04.
 
-* Checkout your riscv-pk repo from this remote source.
+* Clone RISC-V-Linux project from github.
+
 ```
-cd riscv-pk
-git remote add -f riscv_pk_fedora git@github.com:atishp04/riscv-pk.git
-git fetch riscv_pk_fedora
-git checkout microsemi_pcie_support
+git clone https://github.com/westerndigitalcorporation/RISC-V-Linux.git
+```
+* Checkout riscv-pk repo from the RISC-V-Linux project.
+```
+cd <freedom-u-sdk path>/riscv-pk
+git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path> 
+git checkout 9d561e92ea39deee0f238787ba89af99dd8073ef
 ```
 * Recompile bbl.
 ```
@@ -102,11 +112,12 @@ make bbl
 Now the new BBL will add microsemi specific PCIe entry to the device tree.
    You can always verify the device tree entry by adding '--enable-print-device-tree'
    option to the root Makefile in freedom-u-sdk.
-* Checkout riscv-linux repo from this remote source.
+* Checkout linux repo from RISC-V-Linux project. This will bring all the out-of-tree kernel
+  patches on top of 4.19-rc2 to your linux repo.
 ```
-git remote add -f riscv_linux_fedora git@github.com:atishp04/riscv-linux.git
-git fetch riscv_linux_fedora
-git checkout 4.19_fedora_success_sep11
+cd <freedom-u-sdk path>/linux
+git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path> 
+git checkout e5b7972aef06fb6fca471b931d847188696d0c65
 ```
 * Copy the linux config from this repo to your freedom-u-sdk directory.
    The current config mounts the Fedora image to the first partition of the disk.
@@ -115,9 +126,8 @@ git checkout 4.19_fedora_success_sep11
 	- NVME SSD (root=/dev/nvme0n1p1)
    Enable/disable correct CONFIG_CMDLINE config based on your setup.
 ```
-cd ~
-git clone git@github.com:atishp04/riscv-linux-conf.git
-cp riscv-linux-conf/config_fedora_success_4.19_demo_sep11 <freedom-u-sdk path>/conf/
+cd <freedom-u-sdk path>/conf
+cp <RISC-V-LInux project>/riscv-linux-conf/config_fedora_success_4.19_demo_sep11 . 
 ```
 
 * Update freedom-u-sdk Makefile to use the just copied config. Here are the required modification
