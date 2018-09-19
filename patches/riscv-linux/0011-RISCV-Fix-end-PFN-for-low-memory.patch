@@ -1,0 +1,35 @@
+From e5b7972aef06fb6fca471b931d847188696d0c65 Mon Sep 17 00:00:00 2001
+From: Atish Patra <atish.patra@wdc.com>
+Date: Tue, 11 Sep 2018 11:07:15 -0700
+Subject: [PATCH 11/11] RISCV: Fix end PFN for low memory
+
+Use memblock_end_of_DRAM which provides correct last low memory
+PFN. Without that, DMA32 region becomes empty resulting in zero
+pages being allocated for DMA32.
+
+This patch is based on earlier patch from palmer which never
+merged into 4.19. I just edited the commit text to make more
+sense.
+
+Signed-off-by: Atish Patra <atish.patra@wdc.com>
+Signed-off-by: Palmer Dabbelt <palmer@sifive.com>
+---
+ arch/riscv/kernel/setup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index db20dc63..a192bf8a 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -193,7 +193,7 @@ static void __init setup_bootmem(void)
+ 	BUG_ON(mem_size == 0);
+ 
+ 	set_max_mapnr(PFN_DOWN(mem_size));
+-	max_low_pfn = pfn_base + PFN_DOWN(mem_size);
++	max_low_pfn = memblock_end_of_DRAM();
+ 
+ #ifdef CONFIG_BLK_DEV_INITRD
+ 	setup_initrd();
+-- 
+2.7.4
+
