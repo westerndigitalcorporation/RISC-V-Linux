@@ -32,8 +32,10 @@ Required Hardware:
 * SATA Drive(HDD/SSD) or NVMe SSD. This is where the Feodra image will be copied.
 	It is not recommended to use  image from micro SD card.
 
+	FYI: NVMe SSD should connected via the NVMe M.2 connector present at the bottom of the expansion card.
+	     The board layout is available [here](https://www.crowdsupply.com/img/ebd7/layout-1.png)
 
-Source code:
+Project directory:
 ----------------------------------------------------------------------------------
 The current upstream kernel (v4.19-rc2) boots in QEMU for RISC-V. However, it is still
 missing some of the HighFive Unleashed specific drivers. That's why the Linux kernel
@@ -84,13 +86,24 @@ In that case, you don't need this change.
 
 **patches:**
 All the above patches are copied here in separate directories according to the projects.
-You can directly apply these patches on top of your tree as well instead of checkout procedure
-explained below.
+
+**resources:**
+This contains the dmesg, lspci & devicetree output for verification purpose.
 
 Build
 ----------------------------------------------------------------------------------
 
-The build instructions are based on freedom-u-sdk setup. If you are using your own tool chain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image. All the commands are run from freedom-u-sdk root directory.
+The build instructions are based on freedom-u-sdk setup only. It may not work correctly if you are using your own toolchain.
+
+If you are using your own tool chain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image.
+You should directly apply these patches on top of your tree as well instead of checkout procedure
+explained below. Here is commit head on which patches should be applied.
+
+```
+linux:		57361846 Linux 4.19-rc2
+riscv-pk:	5a0e3e55 minit: insert printm as work-around for a race condition
+```
+
 The instructions have only been tested on Ubuntu 16.04.
 
 * Clone RISC-V-Linux project from github.
@@ -107,11 +120,27 @@ git checkout 9d561e92ea39deee0f238787ba89af99dd8073ef
 * Recompile bbl.
 ```
 autoconf && autoheader
+cd ..
 make bbl
 ```
 Now the new BBL will add microsemi specific PCIe entry to the device tree.
    You can always verify the device tree entry by adding '--enable-print-device-tree'
-   option to the root Makefile in freedom-u-sdk.
+   option to the root Makefile in freedom-u-sdk as per below diff.
+ 
+```
+diff --git a/Makefile b/Makefile
+index a6aff26e..7e479a62 100644
+--- a/Makefile
++++ b/Makefile
+@@ -156,6 +156,7 @@ $(bbl): $(pk_srcdir) $(vmlinux_stripped)
+                --host=$(target) \
+                --with-payload=$(vmlinux_stripped) \
+                --enable-logo \
++               --enable-print-device-tree \
+                --with-logo=$(abspath conf/sifive_logo.txt)
+        CFLAGS="-mabi=$(ABI) -march=$(ISA)" $(MAKE) -C $(pk_wrkdir)
+```
+
 * Checkout linux repo from RISC-V-Linux project. This will bring all the out-of-tree kernel
   patches on top of 4.19-rc2 to your linux repo.
 ```
