@@ -35,6 +35,8 @@ Required Hardware:
 	FYI: NVMe SSD should connected via the NVMe M.2 connector present at the bottom of the expansion card.
 	     The board layout is available [here](https://www.crowdsupply.com/img/ebd7/layout-1.png)
 
+![hardware setup](images/IMG_5147.jpg?raw=true"Title")
+
 Project directory:
 ----------------------------------------------------------------------------------
 The current upstream kernel (v4.19-rc2) boots in QEMU for RISC-V. However, it is still
@@ -116,7 +118,7 @@ git clone https://github.com/westerndigitalcorporation/RISC-V-Linux.git
 * Checkout riscv-pk repo from the RISC-V-Linux project.
 ```
 cd <freedom-u-sdk path>/riscv-pk
-git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path> 
+git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path>
 git checkout 9d561e92ea39deee0f238787ba89af99dd8073ef
 ```
 * Recompile bbl.
@@ -128,7 +130,7 @@ make bbl
 Now the new BBL will add microsemi specific PCIe entry to the device tree.
    You can always verify the device tree entry by adding '--enable-print-device-tree'
    option to the root Makefile in freedom-u-sdk as per below diff.
- 
+
 ```
 diff --git a/Makefile b/Makefile
 index a6aff26e..7e479a62 100644
@@ -147,7 +149,7 @@ index a6aff26e..7e479a62 100644
   patches on top of 4.19-rc2 to your linux repo.
 ```
 cd <freedom-u-sdk path>/linux
-git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path> 
+git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path>
 git checkout e5b7972aef06fb6fca471b931d847188696d0c65
 ```
 * Copy the linux config from this repo to your freedom-u-sdk directory.
@@ -158,16 +160,24 @@ git checkout e5b7972aef06fb6fca471b931d847188696d0c65
    Enable/disable correct CONFIG_CMDLINE config based on your setup.
 ```
 cd <freedom-u-sdk path>/conf
-cp <RISC-V-LInux project>/riscv-linux-conf/config_fedora_success_4.19_demo_sep11 . 
-```
-
-* Update freedom-u-sdk Makefile to use the just copied config. Here are the required modification
-
-```
+cp <RISC-V-LInux project>/riscv-linux-conf/config_fedora_success_4.19_demo_sep11 .
 cd <freedom-u-sdk path>
-#Comment the below line and add the next one to the Makefile
-#linux_defconfig := $(confdir)/linux_defconfig
-linux_defconfig := $(confdir)/config_fedora_success_4.19_demo_sep11
+```
+
+* Update freedom-u-sdk Makefile to use the just copied config. Apply the below diff
+
+```
+diff --git a/Makefile b/Makefile
+index 7e479a62..ea9d69b0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -26,7 +26,9 @@ buildroot_rootfs_config := $(confdir)/buildroot_rootfs_config
+
+ linux_srcdir := $(srcdir)/linux
+ linux_wrkdir := $(wrkdir)/linux
+-linux_defconfig := $(confdir)/linux_defconfig
++#linux_defconfig := $(confdir)/linux_defconfig
++linux_defconfig := $(confdir)/config_fedora_success_4.19_demo_sep11
 ```
 * Recompile the kernel (from freedom-u-sdk repo).
 
@@ -212,6 +222,10 @@ sudo dd if=Fedora-GNOME-Rawhide-20180906.n.0-sda1.raw of=/dev/sda1 bs=4M
 Welcome to RISC-V Fedora Desktop!!
 
 ![Fedora Setup screenshot](images/fedora.JPG?raw=true "Title")
+
+
+
+
 
 
 **Acknowledgement:**
