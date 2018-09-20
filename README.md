@@ -85,15 +85,17 @@ In that case, you don't need this change.
 	5a45a6ea Add libfdt support.
 
 **patches:**
+
 All the above patches are copied here in separate directories according to the projects.
 
 **resources:**
+
 This contains the dmesg, lspci & devicetree output for verification purpose.
 
 Build
 ----------------------------------------------------------------------------------
 
-The build instructions are based on freedom-u-sdk setup only. It may not work correctly if you are using your own toolchain.
+The build instructions are based on freedom-u-sdk setup only on Ubuntu 16.04. It may not work correctly if you are using your own toolchain.
 
 If you are using your own tool chain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image.
 You should directly apply these patches on top of your tree as well instead of checkout procedure
@@ -104,7 +106,7 @@ linux:		57361846 Linux 4.19-rc2
 riscv-pk:	5a0e3e55 minit: insert printm as work-around for a race condition
 ```
 
-The instructions have only been tested on Ubuntu 16.04.
+### Steps ###
 
 * Clone RISC-V-Linux project from github.
 

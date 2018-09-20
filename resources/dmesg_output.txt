@@ -1,0 +1,863 @@
+[    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+[    0.000000] Linux version 4.19.0-rc2-27818-ge5b7972a (atish@jedi-01) (gcc version 7.2.0 (GCC)) #6 SMP Mon Sep 17 18:10:12 PDT 2018
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000027ffffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080200000-0x000000027fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x000000027fffffff]
+[    0.000000] On node 0 totalpages: 2096640
+[    0.000000]   DMA32 zone: 7161 pages used for memmap
+[    0.000000]   DMA32 zone: 0 pages reserved
+[    0.000000]   DMA32 zone: 523776 pages, LIFO batch:63
+[    0.000000]   Normal zone: 21504 pages used for memmap
+[    0.000000]   Normal zone: 1572864 pages, LIFO batch:63
+[    0.000000] software IO TLB: mapped [mem 0xfbfff000-0xfffff000] (64MB)
+[    0.000000] CPU with hartid=0 has a non-okay status of "masked"
+[    0.000000] elf_hwcap is 0x1105
+[    0.000000] percpu: Embedded 17 pages/cpu @(____ptrval____) s29272 r8192 d32168 u69632
+[    0.000000] pcpu-alloc: s29272 r8192 d32168 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 1 [0] 2 [0] 3 [0] 4 
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 2067975
+[    0.000000] Kernel command line: earlyprintk video=640x480 root=/dev/nvme0n1p1 rootwait debug udev.log_priority=8 loglevel=8 console=ttySI0 console=tty0
+[    0.000000] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes)
+[    0.000000] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    0.000000] Sorting __ex_table...
+[    0.000000] Memory: 8183340K/8386560K available (6254K kernel code, 379K rwdata, 2286K rodata, 200K init, 806K bss, 203220K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=5, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=5.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=5
+[    0.000000] NR_IRQS: 0, nr_irqs: 0, preallocated irqs: 0
+[    0.000000] plic: mapped 53 interrupts to 4 (out of 9) handlers.
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns
+[    0.000000] Console: colour dummy device 80x25
+[    0.000000] console [tty0] enabled
+[    0.000000] bootconsole [early0] disabled
+[    0.010000] Calibrating delay loop (skipped), value calculated using timer frequency.. 2.00 BogoMIPS (lpj=10000)
+[    0.010000] pid_max: default: 32768 minimum: 301
+[    0.010000] Mount-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.010000] Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.010000] rcu: Hierarchical SRCU implementation.
+[    0.010000] smp: Bringing up secondary CPUs ...
+[    0.010000] smp: Brought up 1 node, 4 CPUs
+[    0.010000] devtmpfs: initialized
+[    0.010000] random: get_random_u32 called from bucket_table_alloc+0x76/0x17c with crng_init=0
+[    0.010000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.010000] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.020000] NET: Registered protocol family 16
+[    0.020000] sifive-u54-prci 10000000.prci: Registered U54 core clocks
+[    0.020000] sifive-gemgxl-mgmt 100a0000.cadence-gemgxl-mgmt: Registered clock switch 'cadence-gemgxl-mgmt'
+[    0.030000] vgaarb: loaded
+[    0.030000] SCSI subsystem initialized
+[    0.030000] libata version 3.00 loaded.
+[    0.030000] usbcore: registered new interface driver usbfs
+[    0.030000] usbcore: registered new interface driver hub
+[    0.030000] usbcore: registered new device driver usb
+[    0.030000] videodev: Linux video capture interface: v2.00
+[    0.030000] pps_core: LinuxPPS API ver. 1 registered
+[    0.030000] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.030000] PTP clock support registered
+[    0.030000] clocksource: Switched to clocksource riscv_clocksource
+[    0.040000] NET: Registered protocol family 2
+[    0.040000] tcp_listen_portaddr_hash hash table entries: 4096 (order: 4, 65536 bytes)
+[    0.040000] TCP established hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.040000] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+[    0.040000] TCP: Hash tables configured (established 65536 bind 65536)
+[    0.040000] UDP hash table entries: 4096 (order: 5, 131072 bytes)
+[    0.040000] UDP-Lite hash table entries: 4096 (order: 5, 131072 bytes)
+[    0.040000] NET: Registered protocol family 1
+[    0.040000] PCI: CLS 0 bytes, default 64
+[    0.040000] workingset: timestamp_bits=62 max_order=21 bucket_order=0
+[    0.050000] fuse init (API version 7.27)
+[    0.050000] SGI XFS with ACLs, security attributes, no debug enabled
+[    0.050000] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.050000] io scheduler noop registered
+[    0.050000] io scheduler cfq registered (default)
+[    0.050000] io scheduler mq-deadline registered
+[    0.050000] io scheduler kyber registered
+[    0.050000] sifive_gpio 10060000.gpio: SiFive GPIO chip registered 16 GPIOs
+[    0.050000] pwm-sifivem 10020000.pwm: Unable to find controller clock
+[    0.050000] pwm-sifivem 10021000.pwm: Unable to find controller clock
+[    0.050000] microsemi_pcie_probe In 
+[    0.050000] microsemi-pcie 2030000000.pcix: interrupt disabled
+[    0.050000] microsemi-pcie 2030000000.pcix: Intc node foundi ms_pcie_intc
+[    0.050000] microsemi-pcie 2030000000.pcix: host bridge /soc/pcix ranges:
+[    0.050000] microsemi-pcie 2030000000.pcix: Parsing ranges property...
+[    0.050000] microsemi-pcie 2030000000.pcix:   MEM 0x40000000..0x5fffffff -> 0x40000000
+[    0.050000] microsemi-pcie 2030000000.pcix: PCI host bridge to bus 0000:00
+[    0.050000] pci_bus 0000:00: root bus resource [bus 01-7f]
+[    0.050000] pci_bus 0000:00: root bus resource [mem 0x40000000-0x5fffffff]
+[    0.050000] pci_bus 0000:00: scanning bus
+[    0.050000] pci 0000:00:00.0: [11aa:1556] type 01 class 0x060400
+[    0.050000] pci 0000:00:00.0: reg 0x10: [mem 0x00000000-0x7fffffff 64bit pref]
+[    0.050000] pci 0000:00:00.0: supports D1 D2
+[    0.050000] pci 0000:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.050000] pci 0000:00:00.0: PME# disabled
+[    0.050000] pci_bus 0000:00: fixups for bus
+[    0.050000] pci 0000:00:00.0: scanning [bus 01-ff] behind bridge, pass 0
+[    0.050000] pci 0000:00:00.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.050000] pci_bus 0000:01: scanning bus
+[    0.050000] pci 0000:01:00.0: [11f8:8561] type 01 class 0x060400
+[    0.050000] pci 0000:01:00.0: enabling Extended Tags
+[    0.060000] pci 0000:01:00.0: PME# supported from D0 D3hot D3cold
+[    0.060000] pci 0000:01:00.0: PME# disabled
+[    0.060000] pci 0000:01:00.0: 16.000 Gb/s available PCIe bandwidth, limited by 5 GT/s x4 link at 0000:00:00.0 (capable of 126.016 Gb/s with 8 GT/s x16 link)
+[    0.060000] pci_bus 0000:01: fixups for bus
+[    0.060000] pci 0000:01:00.0: scanning [bus 00-00] behind bridge, pass 0
+[    0.060000] pci 0000:01:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.060000] pci 0000:01:00.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.060000] pci_bus 0000:02: scanning bus
+[    0.060000] pci 0000:02:00.0: [11f8:8561] type 01 class 0x060400
+[    0.060000] pci 0000:02:00.0: enabling Extended Tags
+[    0.060000] pci 0000:02:00.0: PME# supported from D0 D3hot D3cold
+[    0.060000] pci 0000:02:00.0: PME# disabled
+[    0.060000] pci 0000:02:01.0: [11f8:8561] type 01 class 0x060400
+[    0.060000] pci 0000:02:01.0: enabling Extended Tags
+[    0.070000] pci 0000:02:01.0: PME# supported from D0 D3hot D3cold
+[    0.070000] pci 0000:02:01.0: PME# disabled
+[    0.070000] pci 0000:02:02.0: [11f8:8561] type 01 class 0x060400
+[    0.070000] pci 0000:02:02.0: enabling Extended Tags
+[    0.070000] pci 0000:02:02.0: PME# supported from D0 D3hot D3cold
+[    0.070000] pci 0000:02:02.0: PME# disabled
+[    0.070000] pci 0000:02:03.0: [11f8:8561] type 01 class 0x060400
+[    0.070000] pci 0000:02:03.0: enabling Extended Tags
+[    0.070000] pci 0000:02:03.0: PME# supported from D0 D3hot D3cold
+[    0.070000] pci 0000:02:03.0: PME# disabled
+[    0.080000] pci_bus 0000:02: fixups for bus
+[    0.080000] pci 0000:02:00.0: scanning [bus 00-00] behind bridge, pass 0
+[    0.080000] pci 0000:02:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.080000] pci 0000:02:01.0: scanning [bus 00-00] behind bridge, pass 0
+[    0.080000] pci 0000:02:01.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.080000] pci 0000:02:02.0: scanning [bus 00-00] behind bridge, pass 0
+[    0.080000] pci 0000:02:02.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.080000] pci 0000:02:03.0: scanning [bus 00-00] behind bridge, pass 0
+[    0.080000] pci 0000:02:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.080000] pci 0000:02:00.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.080000] pci_bus 0000:03: scanning bus
+[    0.080000] pci 0000:03:00.0: [1106:3483] type 00 class 0x0c0330
+[    0.080000] pci 0000:03:00.0: reg 0x10: [mem 0x00000000-0x00000fff 64bit]
+[    0.080000] pci 0000:03:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.080000] pci 0000:03:00.0: PME# disabled
+[    0.080000] pci 0000:03:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 5 GT/s x1 link at 0000:02:00.0 (capable of 7.876 Gb/s with 8 GT/s x1 link)
+[    0.080000] pci_bus 0000:03: fixups for bus
+[    0.080000] pci_bus 0000:03: bus scan returning with max=03
+[    0.080000] pci_bus 0000:03: busn_res: [bus 03-7f] end is updated to 03
+[    0.080000] pci 0000:02:01.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.080000] pci_bus 0000:04: scanning bus
+[    0.080000] pci 0000:04:00.0: [1002:6779] type 00 class 0x030000
+[    0.080000] pci 0000:04:00.0: reg 0x10: [mem 0x00000000-0x0fffffff 64bit pref]
+[    0.080000] pci 0000:04:00.0: reg 0x18: [mem 0x00000000-0x0001ffff 64bit]
+[    0.080000] pci 0000:04:00.0: reg 0x20: [io  0x0000-0x00ff]
+[    0.080000] pci 0000:04:00.0: reg 0x30: [mem 0x00000000-0x0001ffff pref]
+[    0.080000] pci 0000:04:00.0: enabling Extended Tags
+[    0.090000] pci 0000:04:00.0: supports D1 D2
+[    0.090000] pci 0000:04:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s x4 link at 0000:02:01.0 (capable of 126.016 Gb/s with 8 GT/s x16 link)
+[    0.090000] pci 0000:04:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+[    0.090000] pci 0000:04:00.1: [1002:aa98] type 00 class 0x040300
+[    0.090000] pci 0000:04:00.1: reg 0x10: [mem 0x00000000-0x00003fff 64bit]
+[    0.090000] pci 0000:04:00.1: enabling Extended Tags
+[    0.090000] pci 0000:04:00.1: supports D1 D2
+[    0.090000] pci_bus 0000:04: fixups for bus
+[    0.090000] pci_bus 0000:04: bus scan returning with max=04
+[    0.090000] pci_bus 0000:04: busn_res: [bus 04-7f] end is updated to 04
+[    0.090000] pci 0000:02:02.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.090000] pci_bus 0000:05: scanning bus
+[    0.090000] pci 0000:05:00.0: [15b7:5002] type 00 class 0x010802
+[    0.090000] pci 0000:05:00.0: reg 0x10: [mem 0x00000000-0x00003fff 64bit]
+[    0.090000] pci 0000:05:00.0: reg 0x20: [mem 0x00000000-0x000000ff 64bit]
+[    0.100000] pci 0000:05:00.0: 16.000 Gb/s available PCIe bandwidth, limited by 5 GT/s x4 link at 0000:00:00.0 (capable of 31.504 Gb/s with 8 GT/s x4 link)
+[    0.100000] pci_bus 0000:05: fixups for bus
+[    0.100000] pci_bus 0000:05: bus scan returning with max=05
+[    0.100000] pci_bus 0000:05: busn_res: [bus 05-7f] end is updated to 05
+[    0.100000] pci 0000:02:03.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.100000] pci_bus 0000:06: scanning bus
+[    0.100000] pci 0000:06:00.0: [1b4b:9125] type 00 class 0x010601
+[    0.100000] pci 0000:06:00.0: reg 0x10: [io  0x8000-0x8007]
+[    0.100000] pci 0000:06:00.0: reg 0x14: [io  0x8040-0x8043]
+[    0.100000] pci 0000:06:00.0: reg 0x18: [io  0x8100-0x8107]
+[    0.100000] pci 0000:06:00.0: reg 0x1c: [io  0x8140-0x8143]
+[    0.100000] pci 0000:06:00.0: reg 0x20: [io  0x800000-0x80001f]
+[    0.100000] pci 0000:06:00.0: reg 0x24: [mem 0x00900000-0x009007ff]
+[    0.100000] pci 0000:06:00.0: reg 0x30: [mem 0xd0000000-0xd000ffff pref]
+[    0.100000] pci 0000:06:00.0: PME# supported from D3hot
+[    0.100000] pci 0000:06:00.0: PME# disabled
+[    0.100000] pci 0000:06:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 5 GT/s x1 link at 0000:02:03.0 (capable of 7.876 Gb/s with 8 GT/s x1 link)
+[    0.100000] pci_bus 0000:06: fixups for bus
+[    0.100000] pci_bus 0000:06: bus scan returning with max=06
+[    0.100000] pci_bus 0000:06: busn_res: [bus 06-7f] end is updated to 06
+[    0.100000] pci_bus 0000:02: bus scan returning with max=06
+[    0.100000] pci_bus 0000:02: busn_res: [bus 02-7f] end is updated to 06
+[    0.110000] pci_bus 0000:01: bus scan returning with max=06
+[    0.110000] pci_bus 0000:01: busn_res: [bus 01-7f] end is updated to 06
+[    0.110000] pci_bus 0000:00: bus scan returning with max=06
+[    0.110000] microsemi-pcie 2030000000.pcix: pci_scan_root_bus_bridge done
+[    0.110000] pci 0000:02:00.0: bridge window [io  0x1000-0x0fff] to [bus 03] add_size 1000
+[    0.110000] pci 0000:02:00.0: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 03] add_size 200000 add_align 100000
+[    0.110000] pci 0000:02:00.0: bridge window [mem 0x00100000-0x001fffff] to [bus 03] add_size 200000 add_align 100000
+[    0.110000] pci 0000:02:01.0: bridge window [mem 0x10000000-0x1fffffff 64bit pref] to [bus 04] add_size 10000000 add_align 10000000
+[    0.110000] pci 0000:02:01.0: bridge window [mem 0x00100000-0x001fffff] to [bus 04] add_size 200000 add_align 100000
+[    0.110000] pci 0000:02:02.0: bridge window [io  0x1000-0x0fff] to [bus 05] add_size 1000
+[    0.110000] pci 0000:02:02.0: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 05] add_size 200000 add_align 100000
+[    0.110000] pci 0000:02:02.0: bridge window [mem 0x00100000-0x001fffff] to [bus 05] add_size 200000 add_align 100000
+[    0.110000] pci 0000:02:03.0: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 06] add_size 200000 add_align 100000
+[    0.110000] pci 0000:02:03.0: bridge window [mem 0x00100000-0x001fffff] to [bus 06] add_size 200000 add_align 100000
+[    0.110000] pci 0000:01:00.0: bridge window [io  0x1000-0x2fff] to [bus 02-06] add_size 2000
+[    0.110000] pci 0000:01:00.0: bridge window [mem 0x08000000-0x1fffffff 64bit pref] to [bus 02-06] add_size 18000000 add_align 10000000
+[    0.110000] pci 0000:01:00.0: bridge window [mem 0x00100000-0x004fffff] to [bus 02-06] add_size 800000 add_align 100000
+[    0.110000] pci 0000:00:00.0: bridge window [io  0x1000-0x2fff] to [bus 01-06] add_size 2000
+[    0.110000] pci 0000:00:00.0: bridge window [mem 0x08000000-0x1fffffff 64bit pref] to [bus 01-06] add_size 18000000 add_align 10000000
+[    0.110000] pci 0000:00:00.0: bridge window [mem 0x00100000-0x004fffff] to [bus 01-06] add_size 800000 add_align 100000
+[    0.110000] pci 0000:00:00.0: BAR 0: no space for [mem size 0x80000000 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 0: failed to assign [mem size 0x80000000 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 9: no space for [mem size 0x30000000 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 9: failed to assign [mem size 0x30000000 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 8: assigned [mem 0x40000000-0x40bfffff]
+[    0.110000] pci 0000:00:00.0: BAR 7: no space for [io  size 0x4000]
+[    0.110000] pci 0000:00:00.0: BAR 7: failed to assign [io  size 0x4000]
+[    0.110000] pci 0000:00:00.0: BAR 0: no space for [mem size 0x80000000 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 0: failed to assign [mem size 0x80000000 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 9: assigned [mem 0x40000000-0x57ffffff 64bit pref]
+[    0.110000] pci 0000:00:00.0: BAR 8: assigned [mem 0x58000000-0x583fffff]
+[    0.110000] pci 0000:00:00.0: BAR 7: no space for [io  size 0x2000]
+[    0.110000] pci 0000:00:00.0: BAR 7: failed to assign [io  size 0x2000]
+[    0.110000] pci 0000:00:00.0: BAR 8: reassigned [mem 0x58000000-0x58bfffff] (expanded by 0x800000)
+[    0.110000] pci 0000:00:00.0: BAR 9: [mem 0x40000000-0x57ffffff 64bit pref] (failed to expand by 0x18000000)
+[    0.110000] pci 0000:00:00.0: failed to add 18000000 res[9]=[mem 0x40000000-0x57ffffff 64bit pref]
+[    0.110000] pci 0000:01:00.0: BAR 9: no space for [mem size 0x30000000 64bit pref]
+[    0.110000] pci 0000:01:00.0: BAR 9: failed to assign [mem size 0x30000000 64bit pref]
+[    0.110000] pci 0000:01:00.0: BAR 8: assigned [mem 0x58000000-0x58bfffff]
+[    0.110000] pci 0000:01:00.0: BAR 7: no space for [io  size 0x4000]
+[    0.110000] pci 0000:01:00.0: BAR 7: failed to assign [io  size 0x4000]
+[    0.110000] pci 0000:01:00.0: BAR 9: assigned [mem 0x40000000-0x57ffffff 64bit pref]
+[    0.110000] pci 0000:01:00.0: BAR 8: assigned [mem 0x58000000-0x583fffff]
+[    0.110000] pci 0000:01:00.0: BAR 7: no space for [io  size 0x2000]
+[    0.110000] pci 0000:01:00.0: BAR 7: failed to assign [io  size 0x2000]
+[    0.110000] pci 0000:01:00.0: BAR 8: reassigned [mem 0x58000000-0x58bfffff] (expanded by 0x800000)
+[    0.110000] pci 0000:01:00.0: BAR 9: [mem 0x40000000-0x57ffffff 64bit pref] (failed to expand by 0x18000000)
+[    0.110000] pci 0000:01:00.0: failed to add 18000000 res[9]=[mem 0x40000000-0x57ffffff 64bit pref]
+[    0.110000] pci 0000:02:01.0: BAR 9: no space for [mem size 0x20000000 64bit pref]
+[    0.110000] pci 0000:02:01.0: BAR 9: failed to assign [mem size 0x20000000 64bit pref]
+[    0.110000] pci 0000:02:00.0: BAR 8: assigned [mem 0x58000000-0x582fffff]
+[    0.110000] pci 0000:02:00.0: BAR 9: assigned [mem 0x40000000-0x401fffff 64bit pref]
+[    0.110000] pci 0000:02:01.0: BAR 8: assigned [mem 0x58300000-0x585fffff]
+[    0.110000] pci 0000:02:02.0: BAR 8: assigned [mem 0x58600000-0x588fffff]
+[    0.110000] pci 0000:02:02.0: BAR 9: assigned [mem 0x40200000-0x403fffff 64bit pref]
+[    0.110000] pci 0000:02:03.0: BAR 8: assigned [mem 0x58900000-0x58bfffff]
+[    0.110000] pci 0000:02:03.0: BAR 9: assigned [mem 0x40400000-0x405fffff 64bit pref]
+[    0.110000] pci 0000:02:00.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:00.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:01.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:01.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:02.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:02.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:03.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:03.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:01.0: BAR 9: assigned [mem 0x40000000-0x4fffffff 64bit pref]
+[    0.110000] pci 0000:02:00.0: BAR 8: assigned [mem 0x58000000-0x580fffff]
+[    0.110000] pci 0000:02:01.0: BAR 8: assigned [mem 0x58100000-0x581fffff]
+[    0.110000] pci 0000:02:02.0: BAR 8: assigned [mem 0x58200000-0x582fffff]
+[    0.110000] pci 0000:02:03.0: BAR 8: assigned [mem 0x58300000-0x583fffff]
+[    0.110000] pci 0000:02:01.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:01.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:03.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:03.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:03.0: BAR 8: reassigned [mem 0x58300000-0x585fffff] (expanded by 0x200000)
+[    0.110000] pci 0000:02:03.0: BAR 9: assigned [mem 0x50000000-0x501fffff 64bit pref]
+[    0.110000] pci 0000:02:02.0: BAR 8: reassigned [mem 0x58600000-0x588fffff] (expanded by 0x200000)
+[    0.110000] pci 0000:02:02.0: BAR 9: assigned [mem 0x50200000-0x503fffff 64bit pref]
+[    0.110000] pci 0000:02:02.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:02.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:02:01.0: BAR 8: reassigned [mem 0x58900000-0x58bfffff] (expanded by 0x200000)
+[    0.110000] pci 0000:02:01.0: BAR 9: [mem 0x40000000-0x4fffffff 64bit pref] (failed to expand by 0x10000000)
+[    0.110000] pci 0000:02:01.0: failed to add 10000000 res[9]=[mem 0x40000000-0x4fffffff 64bit pref]
+[    0.110000] pci 0000:02:00.0: BAR 8: reassigned [mem 0x58000000-0x582fffff] (expanded by 0x200000)
+[    0.110000] pci 0000:02:00.0: BAR 9: assigned [mem 0x50400000-0x505fffff 64bit pref]
+[    0.110000] pci 0000:02:00.0: BAR 7: no space for [io  size 0x1000]
+[    0.110000] pci 0000:02:00.0: BAR 7: failed to assign [io  size 0x1000]
+[    0.110000] pci 0000:03:00.0: BAR 0: assigned [mem 0x58000000-0x58000fff 64bit]
+[    0.110000] pci 0000:02:00.0: PCI bridge to [bus 03]
+[    0.110000] pci 0000:02:00.0:   bridge window [mem 0x58000000-0x582fffff]
+[    0.110000] pci 0000:02:00.0:   bridge window [mem 0x50400000-0x505fffff 64bit pref]
+[    0.110000] pci 0000:04:00.0: BAR 0: assigned [mem 0x40000000-0x4fffffff 64bit pref]
+[    0.110000] pci 0000:04:00.0: BAR 2: assigned [mem 0x58900000-0x5891ffff 64bit]
+[    0.110000] pci 0000:04:00.0: BAR 6: assigned [mem 0x58920000-0x5893ffff pref]
+[    0.110000] pci 0000:04:00.1: BAR 0: assigned [mem 0x58940000-0x58943fff 64bit]
+[    0.110000] pci 0000:04:00.0: BAR 4: no space for [io  size 0x0100]
+[    0.110000] pci 0000:04:00.0: BAR 4: failed to assign [io  size 0x0100]
+[    0.110000] pci 0000:02:01.0: PCI bridge to [bus 04]
+[    0.110000] pci 0000:02:01.0:   bridge window [mem 0x58900000-0x58bfffff]
+[    0.110000] pci 0000:02:01.0:   bridge window [mem 0x40000000-0x4fffffff 64bit pref]
+[    0.110000] pci 0000:05:00.0: BAR 0: assigned [mem 0x58600000-0x58603fff 64bit]
+[    0.110000] pci 0000:05:00.0: BAR 4: assigned [mem 0x58604000-0x586040ff 64bit]
+[    0.110000] pci 0000:02:02.0: PCI bridge to [bus 05]
+[    0.110000] pci 0000:02:02.0:   bridge window [mem 0x58600000-0x588fffff]
+[    0.110000] pci 0000:02:02.0:   bridge window [mem 0x50200000-0x503fffff 64bit pref]
+[    0.110000] pci 0000:06:00.0: BAR 6: assigned [mem 0x58300000-0x5830ffff pref]
+[    0.110000] pci 0000:06:00.0: BAR 5: assigned [mem 0x58310000-0x583107ff]
+[    0.110000] pci 0000:06:00.0: BAR 4: no space for [io  size 0x0020]
+[    0.110000] pci 0000:06:00.0: BAR 4: failed to assign [io  size 0x0020]
+[    0.110000] pci 0000:06:00.0: BAR 0: no space for [io  size 0x0008]
+[    0.110000] pci 0000:06:00.0: BAR 0: failed to assign [io  size 0x0008]
+[    0.110000] pci 0000:06:00.0: BAR 2: no space for [io  size 0x0008]
+[    0.110000] pci 0000:06:00.0: BAR 2: failed to assign [io  size 0x0008]
+[    0.110000] pci 0000:06:00.0: BAR 1: no space for [io  size 0x0004]
+[    0.110000] pci 0000:06:00.0: BAR 1: failed to assign [io  size 0x0004]
+[    0.110000] pci 0000:06:00.0: BAR 3: no space for [io  size 0x0004]
+[    0.110000] pci 0000:06:00.0: BAR 3: failed to assign [io  size 0x0004]
+[    0.110000] pci 0000:02:03.0: PCI bridge to [bus 06]
+[    0.110000] pci 0000:02:03.0:   bridge window [mem 0x58300000-0x585fffff]
+[    0.110000] pci 0000:02:03.0:   bridge window [mem 0x50000000-0x501fffff 64bit pref]
+[    0.110000] pci 0000:01:00.0: PCI bridge to [bus 02-06]
+[    0.110000] pci 0000:01:00.0:   bridge window [mem 0x58000000-0x58bfffff]
+[    0.110000] pci 0000:01:00.0:   bridge window [mem 0x40000000-0x57ffffff 64bit pref]
+[    0.110000] pci 0000:00:00.0: PCI bridge to [bus 01-06]
+[    0.110000] pci 0000:00:00.0:   bridge window [mem 0x58000000-0x58bfffff]
+[    0.110000] pci 0000:00:00.0:   bridge window [mem 0x40000000-0x57ffffff 64bit pref]
+[    0.110000] pci 0000:00:00.0: enabling device (0000 -> 0002)
+[    0.110000] pci 0000:00:00.0: enabling bus mastering
+[    0.110000] pci 0000:01:00.0: enabling device (0000 -> 0002)
+[    0.110000] pci 0000:01:00.0: Cannot iomap Switchtec device
+[    0.110000] pci 0000:01:00.0: enabling bus mastering
+[    0.120000] pci 0000:02:00.0: enabling device (0000 -> 0002)
+[    0.120000] pci 0000:02:00.0: Cannot iomap Switchtec device
+[    0.120000] pci 0000:02:01.0: enabling device (0000 -> 0002)
+[    0.120000] pci 0000:02:01.0: Cannot iomap Switchtec device
+[    0.120000] pci 0000:02:02.0: enabling device (0000 -> 0002)
+[    0.120000] pci 0000:02:02.0: Cannot iomap Switchtec device
+[    0.120000] pci 0000:02:03.0: enabling device (0000 -> 0002)
+[    0.120000] pci 0000:02:03.0: Cannot iomap Switchtec device
+[    0.120000] pci 0000:02:00.0: enabling bus mastering
+[    0.120000] pci 0000:03:00.0: enabling device (0000 -> 0002)
+[    0.120000] pci 0000:04:00.1: Linked as a consumer to 0000:04:00.0
+[    0.150000] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.150000] 10010000.serial: ttySI0 at MMIO 0x10010000 (irq = 4, base_baud = 0) is a sifive-serial
+[    0.150000] 10011000.serial: ttySI1 at MMIO 0x10011000 (irq = 5, base_baud = 0) is a sifive-serial
+[    2.370000] console [ttySI0] enabled
+[    2.370000] [drm] radeon kernel modesetting enabled.
+[    2.380000] radeon 0000:04:00.0: assign IRQ: got 44
+[    2.380000] pci 0000:02:01.0: enabling bus mastering
+[    2.380000] radeon 0000:04:00.0: enabling device (0000 -> 0002)
+[    2.390000] [drm] initializing kernel modesetting (CAICOS 0x1002:0x6779 0x174B:0xE164 0x00).
+[    2.400000] radeon: No suitable DMA available
+[    2.400000] [drm:radeon_device_init] *ERROR* Unable to find PCI I/O BAR
+[    2.540000] [drm:radeon_atombios_init] *ERROR* Unable to find PCI I/O BAR; using MMIO for ATOM IIO
+[    2.550000] ATOM BIOS: HD6450
+[    2.550000] [drm] GPU not posted. posting now...
+[    2.560000] radeon 0000:04:00.0: VRAM: 1024M 0x0000000000000000 - 0x000000003FFFFFFF (1024M used)
+[    2.570000] radeon 0000:04:00.0: GTT: 1024M 0x0000000040000000 - 0x000000007FFFFFFF
+[    2.580000] [drm] Detected VRAM RAM=1024M, BAR=256M
+[    2.580000] [drm] RAM width 64bits DDR
+[    2.590000] [TTM] Zone  kernel: Available graphics memory: 4091670 kiB
+[    2.590000] [TTM] Zone   dma32: Available graphics memory: 2097152 kiB
+[    2.600000] [TTM] Initializing pool allocator
+[    2.600000] [TTM] Initializing DMA pool allocator
+[    2.610000] [drm] radeon: 1024M of VRAM memory ready
+[    2.610000] [drm] radeon: 1024M of GTT memory ready.
+[    2.620000] [drm] Loading CAICOS Microcode
+[    2.620000] [drm] Internal thermal controller without fan control
+[    2.650000] [drm] radeon: dpm initialized
+[    2.650000] [drm] GART: num cpu pages 262144, num gpu pages 262144
+[    2.670000] [drm] enabling PCIE gen 2 link speeds, disable with radeon.pcie_gen2=0
+[    2.860000] [drm] PCIE GART of 1024M enabled (table at 0x0000000000162000).
+[    2.870000] radeon 0000:04:00.0: WB enabled
+[    2.870000] radeon 0000:04:00.0: fence driver on ring 0 use gpu addr 0x0000000040000c00 and cpu addr 0x(____ptrval____)
+[    2.890000] radeon 0000:04:00.0: fence driver on ring 3 use gpu addr 0x0000000040000c0c and cpu addr 0x(____ptrval____)
+[    2.950000] radeon 0000:04:00.0: fence driver on ring 5 use gpu addr 0x0000000000072118 and cpu addr 0x(____ptrval____)
+[    2.960000] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    2.970000] [drm] Driver supports precise vblank timestamp query.
+[    2.970000] radeon 0000:04:00.0: radeon: MSI limited to 32-bit
+[    2.980000] radeon 0000:04:00.0: radeon: using MSI.
+[    2.980000] [drm] radeon: irq initialized.
+[    2.990000] radeon 0000:04:00.0: enabling bus mastering
+[    3.020000] [drm] ring test on 0 succeeded in 1 usecs
+[    3.020000] [drm] ring test on 3 succeeded in 28 usecs
+[    3.200000] [drm] ring test on 5 succeeded in 2 usecs
+[    3.210000] [drm] UVD initialized successfully.
+[    3.210000] [drm] ib test on ring 0 succeeded in 0 usecs
+[    3.220000] [drm] ib test on ring 3 succeeded in 0 usecs
+[    3.380000] [drm] ib test on ring 5 succeeded
+[    3.380000] [drm] Radeon Display Connectors
+[    3.380000] [drm] Connector 0:
+[    3.390000] [drm]   HDMI-A-1
+[    3.390000] [drm]   HPD2
+[    3.390000] [drm]   DDC: 0x6440 0x6440 0x6444 0x6444 0x6448 0x6448 0x644c 0x644c
+[    3.400000] [drm]   Encoders:
+[    3.400000] [drm]     DFP1: INTERNAL_UNIPHY1
+[    3.410000] [drm] Connector 1:
+[    3.410000] [drm]   DVI-D-1
+[    3.410000] [drm]   HPD4
+[    3.420000] [drm]   DDC: 0x6460 0x6460 0x6464 0x6464 0x6468 0x6468 0x646c 0x646c
+[    3.420000] [drm]   Encoders:
+[    3.430000] [drm]     DFP2: INTERNAL_UNIPHY
+[    3.430000] [drm] Connector 2:
+[    3.430000] [drm]   VGA-1
+[    3.440000] [drm]   DDC: 0x6430 0x6430 0x6434 0x6434 0x6438 0x6438 0x643c 0x643c
+[    3.440000] [drm]   Encoders:
+[    3.450000] [drm]     CRT1: INTERNAL_KLDSCP_DAC1
+[    3.640000] [drm] fb mappable at 0x40363000
+[    3.640000] [drm] vram apper at 0x40000000
+[    3.650000] [drm] size 1228800
+[    3.650000] [drm] fb depth is 24
+[    3.650000] [drm]    pitch is 2560
+[    3.920000] Console: switching to colour frame buffer device 80x30
+[    4.070000] radeon 0000:04:00.0: fb0: radeondrmfb frame buffer device
+[    4.070000] [drm] Initialized radeon 2.50.0 20080528 for 0000:04:00.0 on minor 0
+[    4.210000] brd: module loaded
+[    4.260000] loop: module loaded
+[    4.300000] nvme 0000:05:00.0: assign IRQ: got 46
+[    4.350000] nvme nvme0: pci function 0000:05:00.0
+[    4.400000] pci 0000:02:02.0: enabling bus mastering
+[    4.400000] ahci 0000:06:00.0: assign IRQ: got 47
+[    4.440000] nvme 0000:05:00.0: enabling device (0000 -> 0002)
+[    4.490000] ahci 0000:06:00.0: version 3.0
+[    4.540000] nvme 0000:05:00.0: enabling bus mastering
+[    4.590000] pci 0000:02:03.0: enabling bus mastering
+[    4.680000] ahci 0000:06:00.0: AHCI 0001.0000 32 slots 2 ports 6 Gbps 0x3 impl SATA mode
+[    4.760000]  nvme0n1: p1 p2
+[    4.780000] ahci 0000:06:00.0: flags: 64bit ncq sntf led only pmp fbs pio slum part sxs 
+[    4.920000] ahci 0000:06:00.0: enabling bus mastering
+[    4.980000] scsi host0: ahci
+[    5.030000] scsi host1: ahci
+[    5.080000] ata1: SATA max UDMA/133 abar m2048@0x58310000 port 0x58310100 irq 49
+[    5.190000] ata2: SATA max UDMA/133 abar m2048@0x58310000 port 0x58310180 irq 49
+[    5.310000] Rounding down aligned max_sectors from 4294967295 to 4294967288
+[    5.370000] db_root: cannot open: /etc/target
+[    5.430000] sifive_spi 10040000.spi: mapped; irq=42, cs=1
+[    5.490000] m25p80 spi0.0: is25wp256d (32768 Kbytes)
+[    5.550000] sifive_spi 10041000.spi: mapped; irq=43, cs=4
+[    5.610000] sifive_spi 10050000.spi: mapped; irq=6, cs=1
+[    5.670000] libphy: Fixed MDIO Bus: probed
+[    5.670000] ata2: SATA link down (SStatus 0 SControl 330)
+[    5.730000] macb: GEM doesn't support hardware ptp.
+[    5.790000] ata1: SATA link down (SStatus 0 SControl 330)
+[    5.850000] libphy: MACB_mii_bus: probed
+[    6.170000] Microsemi VSC8541 SyncE 10090000.ethernet-ffffffff:00: attached PHY driver [Microsemi VSC8541 SyncE] (mii_bus:phy_addr=10090000.ethernet-ffffffff:00, irq=POLL)
+[    6.360000] macb 10090000.ethernet eth0: Cadence GEM rev 0x10070109 at 0x10090000 irq 20 (70:b3:d5:92:f0:1f)
+[    6.490000] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    6.560000] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    6.630000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    6.700000] ehci-pci: EHCI PCI platform driver
+[    6.770000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    6.840000] ohci-pci: OHCI PCI platform driver
+[    6.900000] ohci-platform: OHCI generic platform driver
+[    6.970000] uhci_hcd: USB Universal Host Controller Interface driver
+[    7.040000] xhci_hcd 0000:03:00.0: assign IRQ: got 54
+[    7.100000] xhci_hcd 0000:03:00.0: enabling bus mastering
+[    7.170000] xhci_hcd 0000:03:00.0: xHCI Host Controller
+[    7.230000] xhci_hcd 0000:03:00.0: new USB bus registered, assigned bus number 1
+[    7.350000] xhci_hcd 0000:03:00.0: hcc params 0x002841eb hci version 0x100 quirks 0x0000000000000090
+[    7.480000] xhci_hcd 0000:03:00.0: enabling Mem-Wr-Inval
+[    7.550000] hub 1-0:1.0: USB hub found
+[    7.620000] hub 1-0:1.0: 1 port detected
+[    7.680000] xhci_hcd 0000:03:00.0: xHCI Host Controller
+[    7.750000] xhci_hcd 0000:03:00.0: new USB bus registered, assigned bus number 2
+[    7.880000] xhci_hcd 0000:03:00.0: Host supports USB 3.0  SuperSpeed
+[    7.940000] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    8.070000] hub 2-0:1.0: USB hub found
+[    8.130000] hub 2-0:1.0: 4 ports detected
+[    8.190000] usbcore: registered new interface driver usb-storage
+[    8.250000] mousedev: PS/2 mouse device common for all mice
+[    8.310000] uvcvideo: Unable to create debugfs directory
+[    8.370000] usbcore: registered new interface driver uvcvideo
+[    8.430000] USB Video Class driver (1.1.1)
+[    8.490000] usb 1-1: new high-speed USB device number 2 using xhci_hcd
+[    8.580000] mmc_spi spi2.0: SD/MMC host mmc0, no DMA, no WP, no poweroff
+[    8.640000] leds_pwm soc:pwmleds: unable to request PWM for heartbeat: -517
+[    8.710000] hidraw: raw HID events driver (C) Jiri Kosina
+[    8.770000] usbcore: registered new interface driver usbhid
+[    8.840000] usbhid: USB HID core driver
+[    8.870000] mmc0: host does not support reading read-only switch, assuming write-enable
+[    8.900000] NET: Registered protocol family 10
+[    9.030000] mmc0: new SDXC card on SPI
+[    9.090000] Segment Routing with IPv6
+[    9.150000] mmcblk0: mmc0:0000 SP128 119 GiB 
+[    9.210000] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    9.340000] NET: Registered protocol family 17
+[    9.350000] hub 1-1:1.0: USB hub found
+[    9.400000] pwm-sifivem 10020000.pwm: SiFive PWM chip registered 4 PWMs
+[    9.460000] hub 1-1:1.0: 4 ports detected
+[    9.530000] pwm-sifivem 10021000.pwm: SiFive PWM chip registered 4 PWMs
+[    9.610000]  mmcblk0: p1 p2 p3 p4
+[    9.710000] random: fast init done
+[    9.770000] EXT4-fs (nvme0n1p1): INFO: recovery required on readonly filesystem
+[    9.900000] EXT4-fs (nvme0n1p1): write access will be enabled during recovery
+[    9.920000] usb 1-1.2: new full-speed USB device number 3 using xhci_hcd
+[   10.190000] input: Logitech USB Receiver as /devices/platform/soc/2030000000.pcix/pci0000:00/0000:00:00.0/0000:01:00.0/0000:02:00.0/0000:03:00.0/usb1/1-1/1-1.2/1-1.2:1.0/0003:046D:C534.0001/input/input0
+[   10.190000] EXT4-fs (nvme0n1p1): orphan cleanup on readonly fs
+[   10.460000] hid-generic 0003:046D:C534.0001: input,hidraw0: USB HID v1.11 Keyboard [Logitech USB Receiver] on usb-0000:03:00.0-1.2/input0
+[   10.460000] EXT4-fs (nvme0n1p1): 6 orphan inodes deleted
+[   10.620000] input: Logitech USB Receiver Mouse as /devices/platform/soc/2030000000.pcix/pci0000:00/0000:00:00.0/0000:01:00.0/0000:02:00.0/0000:03:00.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:046D:C534.0002/input/input1
+[   10.670000] EXT4-fs (nvme0n1p1): recovery complete
+[   10.890000] input: Logitech USB Receiver Consumer Control as /devices/platform/soc/2030000000.pcix/pci0000:00/0000:00:00.0/0000:01:00.0/0000:02:00.0/0000:03:00.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:046D:C534.0002/input/input2
+[   10.970000] EXT4-fs (nvme0n1p1): mounted filesystem with ordered data mode. Opts: (null)
+[   11.280000] input: Logitech USB Receiver System Control as /devices/platform/soc/2030000000.pcix/pci0000:00/0000:00:00.0/0000:01:00.0/0000:02:00.0/0000:03:00.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:046D:C534.0002/input/input3
+[   11.360000] VFS: Mounted root (ext4 filesystem) readonly on device 259:1.
+[   11.620000] hid-generic 0003:046D:C534.0002: input,hiddev96,hidraw1: USB HID v1.11 Mouse [Logitech USB Receiver] on usb-0000:03:00.0-1.2/input1
+[   11.710000] devtmpfs: mounted
+[   11.970000] Freeing unused kernel memory: 200K
+[   12.050000] This architecture does not have kernel memory protection.
+[   12.130000] Run /sbin/init as init process
+[   12.390000] systemd[1]: System time before build time, advancing clock.
+[   12.490000] systemd[1]: systemd 239 running in system mode. (+PAM +AUDIT +SELINUX +IMA -APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 -SECCOMP +BLKID +ELFUTILS +KMOD +IDN2 -IDN +PCRE2 default-hierarchy=hybrid)
+[   12.820000] systemd[1]: No virtualization found in DMI
+[   12.910000] systemd[1]: No virtualization found in CPUID
+[   12.990000] systemd[1]: Virtualization XEN not found, /proc/xen does not exist
+[   13.140000] systemd[1]: This platform does not support /proc/device-tree
+[   13.220000] systemd[1]: UML virtualization not found in /proc/cpuinfo.
+[   13.300000] systemd[1]: This platform does not support /proc/sysinfo
+[   13.380000] systemd[1]: Found VM virtualization none
+[   13.450000] systemd[1]: Detected architecture riscv64.
+[   13.520000] systemd[1]: Mounting cgroup to /sys/fs/cgroup/cpu of type cgroup with options cpu.
+[   13.950000] systemd-fstab-generator[89]: Parsing /etc/fstab
+[   13.960000] systemd-gpt-auto-generator[91]: Failed to chase block device '/', ignoring: No such file or directory
+[   14.020000] systemd-fstab-generator[89]: Found entry what=/dev/disk/by-uuid/82bf655e-24f1-46b7-a0bb-9eefce3a42dc where=/ type=ext4 makefs=no nofail=no noauto=no
+[   14.350000] systemd-getty-generator[90]: Automatically adding serial getty for /dev/ttySI0.
+[   14.350000] systemd-gpt-auto-generator[91]: /dev/nvme0n1p1: root device /dev/nvme0n1.
+[   14.940000] random: systemd: uninitialized urandom read (16 bytes read)
+[   15.090000] random: systemd: uninitialized urandom read (16 bytes read)
+[   15.230000] random: systemd: uninitialized urandom read (16 bytes read)
+[   15.910000] systemd[101]: systemd-sysctl.service: Kernel keyring not supported, ignoring.
+[   16.400000] systemd[104]: systemd-udev-trigger.service: Kernel keyring not supported, ignoring.
+[   16.610000] systemd[105]: systemd-vconsole-setup.service: Kernel keyring not supported, ignoring.
+[   17.050000] systemd[110]: systemd-remount-fs.service: Kernel keyring not supported, ignoring.
+[   17.350000] systemd[113]: systemd-journald.service: Kernel keyring not supported, ignoring.
+[   17.380000] systemd-journald[113]: Found cgroup2 on /sys/fs/cgroup/unified, unified hierarchy for systemd controller
+[   17.670000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   17.670000] systemd-journald[113]: Fixed min_use=1.0M max_use=399.5M max_size=49.9M min_size=512.0K keep_free=599.3M n_max_files=100
+[   17.680000] systemd-journald[113]: Reserving 90929 entries in hash table.
+[   18.120000] systemd-journald[113]: Vacuuming...
+[   18.120000] systemd-journald[113]: Vacuuming done, freed 0B of archived journals from /run/log/journal/6243a9ea4dcd43919ead302e79a8d9ad.
+[   18.120000] systemd-journald[113]: Flushing /dev/kmsg...
+[   18.320000] systemd-journald[113]: systemd-journald running as pid 113
+[   18.660000] systemd[1]: auth-rpcgss-module.service: ConditionPathExists=/etc/krb5.keytab failed.
+[   18.660000] systemd-journald[113]: Sent READY=1 notification.
+[   18.840000] systemd[1]: auth-rpcgss-module.service: Starting requested but condition failed. Not starting unit.
+[   18.930000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[   19.120000] systemd[1]: auth-rpcgss-module.service: Job auth-rpcgss-module.service/start finished, result=done
+[   19.400000] systemd[1]: var-lib.mount: Collecting.
+[   19.490000] systemd[1]: var-lib-systemd.mount: Collecting.
+[   19.580000] systemd[1]: var-lib-systemd-coredump.mount: Collecting.
+[   19.680000] systemd[1]: var.mount: Collecting.
+[   19.770000] systemd[1]: var-tmp.mount: Collecting.
+[   19.850000] systemd[1]: libmount event [rescan: yes]
+[   19.930000] EXT4-fs (nvme0n1p1): re-mounted. Opts: (null)
+[   19.940000] systemd[1]: dev-nvme0n1p1.device: Changed dead -> tentative
+[   20.780000] random: crng init done
+[   20.780000] random: 7 urandom warning(s) missed due to ratelimiting
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   22.400000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   27.410000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.290000] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   32.290000] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   32.460000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.460000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.460000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.470000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.970000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.970000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.970000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.970000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[   32.970000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   32.980000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.470000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.480000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.510000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.530000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.540000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.550000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[   37.560000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.570000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.580000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   37.590000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.010000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.020000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.030000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.040000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.050000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.060000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.070000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.080000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.090000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   43.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.030000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.040000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.050000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.060000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.070000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.080000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.110000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.120000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   48.130000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.110000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.130000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.160000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.220000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.250000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.280000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.310000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.340000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   53.370000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   57.440000] macb 10090000.ethernet eth0: link up (1000/Full)
+[   57.440000] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   58.170000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[   58.180000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.210000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.230000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.760000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.770000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.780000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   58.790000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.580000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.630000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.650000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.670000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.680000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.690000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.710000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.720000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.730000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   65.740000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.760000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.770000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.780000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.790000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.800000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.810000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.820000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.830000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.840000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   72.850000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   77.790000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[   77.800000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[   77.830000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   77.870000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   77.920000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   77.970000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   78.000000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   78.050000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   78.060000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   78.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   82.890000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   82.910000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   82.960000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   82.990000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.030000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.050000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.070000] EXT4-fs (mmcblk0p2): recovery complete
+[   83.080000] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[   83.080000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.120000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.140000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.150000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   83.550000] EXT4-fs (mmcblk0p4): recovery complete
+[   83.610000] EXT4-fs (mmcblk0p4): mounted filesystem with ordered data mode. Opts: (null)
+[   84.110000] EXT4-fs (mmcblk0p3): recovery complete
+[   84.110000] EXT4-fs (mmcblk0p3): mounted filesystem with ordered data mode. Opts: (null)
+[   87.930000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   87.940000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   87.990000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   88.000000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   88.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   88.110000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   92.130000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   92.140000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   92.150000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   92.160000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.540000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.550000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.670000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.680000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.690000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.700000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.710000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[   93.720000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.730000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[   93.740000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  104.880000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  104.900000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  104.920000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  104.940000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[  104.960000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  104.980000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  105.000000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[  105.020000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  105.040000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  105.080000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[  109.890000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  109.910000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  109.930000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  109.950000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  109.970000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  109.990000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  110.000000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  110.010000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  110.020000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  110.030000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  115.070000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  115.080000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  115.090000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  115.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  115.110000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  116.580000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  116.590000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  116.600000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  116.610000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  116.620000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  121.670000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  121.680000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  121.690000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  121.700000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  121.710000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  125.580000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  125.590000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  126.980000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  126.990000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  131.240000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  133.940000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  138.710000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  138.720000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.770000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.780000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.800000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.810000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.820000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.830000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.840000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.850000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.860000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  139.870000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  153.950000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  165.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  165.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  165.210000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  165.220000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  165.230000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  167.730000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  172.730000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  172.760000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  172.770000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  172.800000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  172.810000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  174.630000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  174.640000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  174.730000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  174.740000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  176.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  178.270000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  178.290000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.620000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.640000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.650000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.660000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.670000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.680000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.690000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  180.700000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  186.890000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  186.900000] systemd-journald[113]: /var/log/journal/6243a9ea4dcd43919ead302e79a8d9ad/system.journal: Journal header limits reached or header out-of-date, rotating.
+[  186.910000] systemd-journald[113]: Rotating...
+[  186.920000] systemd-journald[113]: Journal effective settings seal=yes compress=yes compress_threshold_bytes=512B
+[  186.930000] systemd-journald[113]: Reserving 233016 entries in hash table.
+[  186.960000] systemd-journald[113]: Journal effective settings seal=yes compress=yes compress_threshold_bytes=512B
+[  186.970000] systemd-journald[113]: Reserving 233016 entries in hash table.
+[  187.000000] systemd-journald[113]: Vacuuming...
+[  187.010000] systemd-journald[113]: Vacuuming done, freed 0B of archived journals from /var/log/journal/6243a9ea4dcd43919ead302e79a8d9ad.
+[  187.020000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.010000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.020000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.030000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.040000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.050000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.060000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.070000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.080000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.090000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  192.100000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  201.190000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  201.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  201.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  210.040000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  210.050000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  210.060000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  210.070000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  210.080000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  210.090000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  212.460000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  212.480000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  214.180000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  214.210000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  291.260000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  291.260000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  291.270000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  291.280000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  291.290000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  291.300000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  291.310000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  321.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  321.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.260000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.270000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.280000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.290000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.300000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.310000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.320000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  354.330000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  371.660000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  371.670000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  371.680000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  371.690000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  371.700000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  371.710000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  381.190000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  381.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  441.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  441.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  501.190000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  501.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  561.190000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  561.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  561.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  561.210000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.210000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.220000] systemd-journald[113]: Successfully sent stream file descriptor to service manager.
+[  621.220000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.240000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.250000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.260000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.270000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  621.280000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  649.990000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  649.990000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  650.010000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  681.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  741.190000] systemd-journald[113]: Sent WATCHDOG=1 notification.
+[  741.190000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
+[  741.200000] systemd-journald[113]: Journal effective settings seal=no compress=yes compress_threshold_bytes=512B
