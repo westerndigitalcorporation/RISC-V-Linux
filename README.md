@@ -3,7 +3,7 @@ Build Fedora Gnome Desktop on RISC-V!!
 =======================================================
 The intent of this document is to share the hardware setup and source code
 build instructions to bring up Fedora 29 GNOME desktop on HiFive Unleased
-board. It is assumed that you know how to setup a RISC-V development environment.
+board. It is assumed that you know how to set up a RISC-V development environment.
 If not please follow the instructions below using the [freedom-u-sdk](https://github.com/sifive/freedom-u-sdk.git).
 
 ```
@@ -15,7 +15,7 @@ make qemu (for qemu boot)
 ```
 
 Let's get back to the problem at hand i.e. Setup Fedora 29 GNOME desktop on RISC-V!
-Here are the hardware used for our setup.
+Here is the hardware used for our setup.
 
 Required Hardware:
 ----------------------------------------------------------------------------------
@@ -26,14 +26,14 @@ Required Hardware:
 	* However, only PCIe, SATA, M.2 SSD connectors are enabled right now.
 * Radeon HD 6450 GPU card
 	* Any Caicos-based card should be OK, but the kernel config instructs specific firmware to be used. It is recommended to use the above specific GPU as it is verified. In case you want to use any other GPU, load the appropriate firmware accordingly.
-	- The gpu uses x16 PCI Express card connector.
+	- The GPU uses x16 PCI Express card connector.
 * PCIe to USB card (I have used [this](http://a.co/d/du7drEo))
 	- x1 PCI Express card connector can be used to provide USB ports for
 	  mouse/keyboard.
-* SATA Drive(HDD/SSD) or NVMe SSD. This is where the Feodra image will be copied.
+* SATA Drive(HDD/SSD) or NVMe SSD. This is where the Fedora image will be copied.
 	It is not recommended to use an image from a micro SD card.
 
-	FYI: NVMe SSD should connected via the NVMe M.2 connector present at the bottom of the expansion card.
+	FYI: NVMe SSD should be connected via the NVMe M.2 connector present at the bottom of the expansion card.
 	     The board layout is available [here](https://www.crowdsupply.com/img/ebd7/layout-1.png)
 
 ![hardware setup](images/IMG_5147.jpg?raw=true"Title")
@@ -46,14 +46,14 @@ source tree also has to be hosted out of mainline tree.
 
 **riscv-linux-conf:**
 
-It contains the required Linux config file for this project. This needs to be copied  to freedom-u-sdk conf directory.
+It contains the required Linux config file for this project. This needs to be copied to freedom-u-sdk conf directory.
 
 N.B. The Linux config file will only work for HiFive Unleashed board with a GPU card. You can't use this in a QEMU setup. Mainline kernel 4.19-rc2 should boot in QEMU without
 any issues.
 
 **riscv-linux:**
 
-It is based on 4.19-rc2 and contains all required drivers and couple of kernel hacks.
+It is based on 4.19-rc2 and contains all required drivers and a couple of kernel hacks.
 Here is the summary of out-of-tree commits:
 
 	-------------------------------------------------
@@ -80,7 +80,7 @@ Here is the summary of out-of-tree commits:
 **riscv-pk:**
 
 This repository builds the BBL (Berkely Boot Loader) for RISC-V project.
-To use Microsemi expansion board, the DT in HiFive Unleashed board has
+To use the Microsemi expansion board, the DT in HiFive Unleashed board has
 to be updated unless you have the latest firmware with updated DT.
 In that case, you don't need this change.
 
@@ -100,7 +100,7 @@ Build
 
 The build instructions are based on freedom-u-sdk setup only on Ubuntu 16.04. It may not work correctly if you are using your own toolchain.
 
-If you are using your own tool chain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image.
+If you are using your own toolchain build, you can just compile the riscv-pk and riscv-linux separately and use the `bbl.bin` image.
 You should directly apply these patches on top of your tree as well instead of checkout procedure
 explained below. Here is commit head on which patches should be applied.
 
@@ -128,7 +128,7 @@ autoconf && autoheader
 cd ..
 make bbl
 ```
-Now the new BBL will add microsemi specific PCIe entry to the device tree.
+Now the new BBL will add Microsemi specific PCIe entry to the device tree.
    You can always verify the device tree entry by adding '--enable-print-device-tree'
    option to the root Makefile in freedom-u-sdk as per below diff.
 
@@ -146,14 +146,14 @@ index a6aff26e..7e479a62 100644
         CFLAGS="-mabi=$(ABI) -march=$(ISA)" $(MAKE) -C $(pk_wrkdir)
 ```
 
-* Checkout linux repo from RISC-V-Linux project. This will bring all the out-of-tree kernel
-  patches on top of 4.19-rc2 to your linux repo.
+* Checkout Linux repo from RISC-V-Linux project. This will bring all the out-of-tree kernel
+  patches on top of 4.19-rc2 to your Linux repo.
 ```
 cd <freedom-u-sdk path>/linux
 git remote add -f fedora-wdc-riscv <local RISC-V-Linux repo path>
 git checkout e5b7972aef06fb6fca471b931d847188696d0c65
 ```
-* Copy the linux config from this repo to your freedom-u-sdk directory.
+* Copy the Linux config from this repo to your freedom-u-sdk directory.
    The current config mounts the Fedora image to the first partition of the disk.
    The present config file has two options
 	- SATA SSD (root=/dev/sda1)
@@ -206,7 +206,7 @@ The disk image (above) is partitioned, but usually we need an unpartitioned ("na
 guestfish -a Fedora-GNOME-Rawhide-20180906.n.0-sda.raw run : download /dev/sda1 Fedora-GNOME-Rawhide-20180906.n.0-sda1.raw
 ```
 
-This creates a naked ext4 filesystem called `*-sda1.raw`. The naked ext4 filesystem can be copied to first partition of your disk.
+This creates a naked ext4 filesystem called `*-sda1.raw`. The naked ext4 filesystem can be copied to the first partition of your disk.
 
 ```
 sudo dd if=Fedora-GNOME-Rawhide-20180906.n.0-sda1.raw of=/dev/sda1 bs=4M
@@ -218,7 +218,7 @@ sudo dd if=Fedora-GNOME-Rawhide-20180906.n.0-sda1.raw of=/dev/sda1 bs=4M
 * Connect the power to the Expansion board only. It powers the unleashed board as well.
 * Turn on the Unleashed switch.
 * Turn on the Expansion board switch.
-* Connect to the serial terminal. If a display is connected, you should Fedora prompt in a while. Once you are done with the initial Fedora setup process in screen, you may have to reboot the system.  
+* Connect to the serial terminal. If a display is connected, you should Fedora prompt in a while. Once you are done with the initial Fedora setup process in the screen, you may have to reboot the system.  
 
 Welcome to RISC-V Fedora Desktop!!
 
