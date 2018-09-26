@@ -2,9 +2,9 @@
 Build Fedora Gnome Desktop on RISC-V!!
 =======================================================
 The intent of this document is to share the hardware setup and source code
-build instructions to bring up Fedora 29 GNOME desktop on HighFive Unleased
-board. It is assumed that you know how to setup RISC-V development environment.
-If not please follow the below instructions using [freedom-u-sdk](https://github.com/sifive/freedom-u-sdk.git).
+build instructions to bring up Fedora 29 GNOME desktop on HiFive Unleased
+board. It is assumed that you know how to setup a RISC-V development environment.
+If not please follow the instructions below using the [freedom-u-sdk](https://github.com/sifive/freedom-u-sdk.git).
 
 ```
 git clone https://github.com/sifive/freedom-u-sdk.git
@@ -13,24 +13,25 @@ git submodule update --init --recursive
 make
 make qemu (for qemu boot)
 ```
-Let's get back to the problem at hand i.e. Setup Fedora 29 GNOME desktop on RISC-V!!
+
+Let's get back to the problem at hand i.e. Setup Fedora 29 GNOME desktop on RISC-V!
 Here are the hardware used for our setup.
 
 Required Hardware:
 ----------------------------------------------------------------------------------
 
-* HighFive Unleashed Board (This is the only Linux capable [RISC-V board](https://www.sifive.com/products/hifive-unleashed/))
-* Microsemi HighFive Unleashed Expansion board([available here](https://www.crowdsupply.com/microsemi/hifive-unleashed-expansion-board))
-	* Again only expansion board available with multiple I/O Support
+* [HiFive Unleashed](https://www.sifive.com/products/hifive-unleashed/) (This is the only Linux capable RISC-V board)
+* Microsemi HiFive Unleashed Expansion board ([available from Crowd Supply](https://www.crowdsupply.com/microsemi/hifive-unleashed-expansion-board))
+	* Again, this is the only expansion board available with multiple I/O Support
 	* However, only PCIe, SATA, M.2 SSD connectors are enabled right now.
 * Radeon HD 6450 GPU card
-	* Any Caicos-based card should be OK. But the kernel config instructs specific firmware to be used. It is recommended to use the above specific GPU as it is verified. In case you want to use any other GPU, load the appropriate firmware accordingly.
+	* Any Caicos-based card should be OK, but the kernel config instructs specific firmware to be used. It is recommended to use the above specific GPU as it is verified. In case you want to use any other GPU, load the appropriate firmware accordingly.
 	- The gpu uses x16 PCI Express card connector.
 * PCIe to USB card (I have used [this](http://a.co/d/du7drEo))
 	- x1 PCI Express card connector can be used to provide USB ports for
 	  mouse/keyboard.
 * SATA Drive(HDD/SSD) or NVMe SSD. This is where the Feodra image will be copied.
-	It is not recommended to use  image from micro SD card.
+	It is not recommended to use an image from a micro SD card.
 
 	FYI: NVMe SSD should connected via the NVMe M.2 connector present at the bottom of the expansion card.
 	     The board layout is available [here](https://www.crowdsupply.com/img/ebd7/layout-1.png)
@@ -40,14 +41,14 @@ Required Hardware:
 Project directory:
 ----------------------------------------------------------------------------------
 The current upstream kernel (v4.19-rc2) boots in QEMU for RISC-V. However, it is still
-missing some of the HighFive Unleashed specific drivers. That's why the Linux kernel
+missing some of the HiFive Unleashed specific drivers. That's why the Linux kernel
 source tree also has to be hosted out of mainline tree.
 
 **riscv-linux-conf:**
 
 It contains the required Linux config file for this project. This needs to be copied  to freedom-u-sdk conf directory.
 
-N.B. The Linux config file will only work for HighFive Unleashed board with a GPU card. You can't use this in a QEMU setup. Mainline kernel 4.19-rc2 should boot in QEMU without
+N.B. The Linux config file will only work for HiFive Unleashed board with a GPU card. You can't use this in a QEMU setup. Mainline kernel 4.19-rc2 should boot in QEMU without
 any issues.
 
 **riscv-linux:**
@@ -79,7 +80,7 @@ Here is the summary of out-of-tree commits:
 **riscv-pk:**
 
 This repository builds the BBL (Berkely Boot Loader) for RISC-V project.
-To use Microsemi expansion board, the DT in HighFive Unleashed board has
+To use Microsemi expansion board, the DT in HiFive Unleashed board has
 to be updated unless you have the latest firmware with updated DT.
 In that case, you don't need this change.
 
