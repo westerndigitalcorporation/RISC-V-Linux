@@ -2,7 +2,7 @@
 Build Fedora Gnome Desktop on RISC-V!!
 =======================================================
 The intent of this document is to share the hardware setup and source code
-build instructions to bring up Fedora 29 GNOME desktop on HiFive Unleased
+build instructions to bring up Fedora 29 GNOME desktop on HiFive Unleashed
 board. It is assumed that you know how to set up a RISC-V development environment.
 If not please follow the instructions below using the [freedom-u-sdk](https://github.com/sifive/freedom-u-sdk.git).
 
